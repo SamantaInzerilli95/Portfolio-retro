@@ -15,7 +15,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.8.49/Tone.min.js"></script>
 
-    <!--  CSS -->
+    <!-- CSS -->
     <link rel="stylesheet" href="./src/style.css" />
   </head>
   <body
@@ -46,7 +46,8 @@
       id="map-screen"
       class="hidden absolute inset-0 flex items-center justify-center z-20"
     >
-      <h2 class="text-5xl text-yellow-400">¡MAPA DEL JUEGO AQUÍ!</h2>
+      <!-- ¡NUEVO! El lienzo para dibujar el mapa -->
+      <canvas id="game-map-canvas" style="image-rendering: pixelated"></canvas>
     </div>
 
     <!-- JS -->
