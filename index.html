@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Retro Portfolio Game</title>
+
+    <!-- Fuente retro -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Tailwind y Tone.js -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.8.49/Tone.min.js"></script>
+
+    <!--  CSS -->
+    <link rel="stylesheet" href="./src/style.css" />
+  </head>
+  <body
+    class="text-white font-['Press_Start_2P'] m-0 p-0 overflow-hidden flex items-center justify-center min-h-screen"
+    style="background-color: #1a202c"
+  >
+    <!-- Fondo de estática cubriendo toda la pantalla -->
+    <div id="static-effect"></div>
+
+    <!-- Pantalla de inicio -->
+    <div
+      id="start-screen"
+      class="absolute inset-0 flex flex-col items-center justify-center z-20"
+    >
+      <h1 class="text-4xl text-green-400 mb-6 animate-pulse">
+        Cargando Mundo...
+      </h1>
+      <button
+        id="start-button"
+        class="px-8 py-4 bg-red-600 text-white text-3xl uppercase font-bold rounded-lg shadow-lg hover:bg-red-700 transition duration-300 ease-in-out transform hover:scale-105"
+      >
+        START
+      </button>
+    </div>
+
+    <!-- Pantalla del mapa -->
+    <div
+      id="map-screen"
+      class="hidden absolute inset-0 flex items-center justify-center z-20"
+    >
+      <h2 class="text-5xl text-yellow-400">¡MAPA DEL JUEGO AQUÍ!</h2>
+    </div>
+
+    <!-- JS -->
+    <script src="./src/main.js" type="module"></script>
+  </body>
+</html>

@@ -1,0 +1,100 @@
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #1a202c; /* Fondo oscuro controlado por CSS */
+}
+
+/* Efecto de sombreado en los costados */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: radial-gradient(
+    ellipse at center,
+    transparent 0%,
+    transparent 50%,
+    rgba(0, 0, 0, 0.8) 100%
+  );
+  pointer-events: none;
+  z-index: 15;
+}
+
+#static-effect {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-image: url("/static-noise.png");
+  background-size: cover;
+  background-repeat: repeat;
+  filter: brightness(1);
+  animation: flicker 0.15s infinite alternate;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 1;
+}
+
+/* Overlay negro con transparencia que cubre toda la estática */
+#static-effect::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(61, 61, 61, 0.084);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Contenido con z-index alto para estar arriba */
+#start-screen,
+#map-screen {
+  position: absolute;
+  inset: 0;
+  z-index: 20;
+}
+
+/* Animación parpadeo */
+@keyframes flicker {
+  0% {
+    opacity: 0.08;
+  }
+  50% {
+    opacity: 0.2;
+  }
+  100% {
+    opacity: 0.08;
+  }
+}
+
+/* Botón START */
+#start-button {
+  font-family: "Press Start 2P", cursive;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.4);
+  transition: all 0.3s ease;
+}
+
+#start-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.6);
+}
+
+#start-button:active {
+  transform: translateY(0);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Ocultar elemento */
+.hidden {
+  display: none;
+}
