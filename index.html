@@ -22,7 +22,7 @@
     class="text-white font-['Press_Start_2P'] m-0 p-0 overflow-hidden flex items-center justify-center min-h-screen"
     style="background-color: #1a202c"
   >
-    <!-- Fondo de estática cubriendo toda la pantalla -->
+    <!-- Fondo de estática -->
     <div id="static-effect"></div>
 
     <!-- Pantalla de inicio -->
@@ -46,11 +46,38 @@
       id="map-screen"
       class="hidden absolute inset-0 flex items-center justify-center z-20"
     >
-      <!-- ¡NUEVO! El lienzo para dibujar el mapa -->
+      <!-- El lienzo para dibujar el mapa -->
       <canvas id="game-map-canvas" style="image-rendering: pixelated"></canvas>
+
+      <!-- Mensaje de interacción -->
+      <div
+        id="interaction-prompt"
+        class="hidden absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-gray-800 text-yellow-300 text-xl px-4 py-2 rounded-lg border-2 border-yellow-500 shadow-lg z-30"
+      >
+        Presiona [ESPACIO] para interactuar
+      </div>
+
+      <!-- Botón de acción táctil-->
+      <button
+        id="action-button"
+        class="hidden absolute bottom-8 right-8 px-6 py-4 bg-blue-700 text-white text-3xl rounded-full shadow-lg hover:bg-blue-600 transition duration-200 z-30"
+      >
+        &#9650;
+        <!-- Flecha hacia arriba, como un botón de acción genérico -->
+      </button>
     </div>
 
-    <!-- JS -->
+    <!-- Modal de Interacción (oculto por defecto) -->
+    <div id="interaction-modal" class="modal-overlay hidden">
+      <div class="modal-content">
+        <span class="close-button" id="modal-close-button">&times;</span>
+        <h2 id="modal-title"></h2>
+        <div id="modal-body">
+          <!-- Aca va el contenido específico de cada sección del portfolio -->
+        </div>
+      </div>
+    </div>
+
     <script src="./src/main.js" type="module"></script>
   </body>
 </html>

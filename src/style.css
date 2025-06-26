@@ -6,7 +6,7 @@
 }
 
 body {
-  background-color: #1a202c; /* Fondo oscuro controlado por CSS */
+  background-color: #1a202c;
 }
 
 /* Efecto de sombreado en los costados */
@@ -33,7 +33,7 @@ body::before {
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-image: url("/static-noise.png");
+  background-image: url("../static-noise.png");
   background-size: cover;
   background-repeat: repeat;
   filter: brightness(1);
@@ -43,7 +43,7 @@ body::before {
   opacity: 1;
 }
 
-/* Overlay negro con transparencia que cubre toda la estática */
+/* Overlay negro con transparencia*/
 #static-effect::after {
   content: "";
   position: fixed;
@@ -94,7 +94,145 @@ body::before {
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
 }
 
-/* Ocultar elemento */
+/* ---  Botón de Acción y Mensaje de Interacción --- */
+
+#interaction-prompt {
+  font-family: "Press Start 2P", cursive;
+  padding: 1rem 2rem;
+  white-space: nowrap;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+  transition: opacity 0.3s ease-out;
+}
+
+#action-button {
+  font-family: "Press Start 2P", cursive;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+  transition: all 0.1s ease-in-out;
+  border: 3px solid #60a5fa;
+}
+
+#action-button:hover {
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.7);
+  transform: translateY(-2px);
+}
+
+#action-button:active {
+  transform: translateY(2px);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  background-color: #3b82f6;
+}
+
+/* Estilos del Modal */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px); /* Para compatibilidad con Safari */
+  animation: fadeInModalOverlay 0.3s ease-out forwards;
+}
+
+.modal-content {
+  background-color: #222;
+  color: #eee;
+  padding: 30px;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 700px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+  position: relative;
+  border: 2px solid #444;
+  text-align: center;
+  animation: fadeInScale 0.3s ease-out forwards;
+  font-size: 1rem;
+}
+
+/* Estilos para los elementos internos del modal */
+.modal-content h2 {
+  font-size: 2em;
+  margin-bottom: 20px;
+  color: #fff;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  font-family: "Press Start 2P", cursive;
+}
+
+.modal-content p {
+  font-size: 1.1em;
+  line-height: 1.6;
+  margin-bottom: 15px;
+}
+
+.modal-content ul {
+  list-style: none;
+  padding: 0;
+  margin: 15px 0;
+}
+
+.modal-content ul li {
+  font-size: 1.05em;
+  padding: 5px 0;
+  border-bottom: 1px dashed #444;
+  &:last-child {
+    border-bottom: none;
+  }
+}
+
+.modal-content a {
+  color: #66ccff;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.2s ease-in-out;
+  &:hover {
+    color: #99e6ff;
+    text-decoration: underline;
+  }
+}
+
+.close-button {
+  position: absolute;
+  top: 15px;
+  right: 25px;
+  font-size: 30px;
+  cursor: pointer;
+  color: #aaa;
+  transition: color 0.2s ease-in-out, transform 0.2s ease-in-out;
+}
+
+.close-button:hover {
+  color: #fff;
+  transform: scale(1.1);
+}
+
+/* Animación para la entrada del modal */
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Animación para la entrada del overlay */
+@keyframes fadeInModalOverlay {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Clase de utilidad */
 .hidden {
-  display: none;
+  display: none !important;
 }
